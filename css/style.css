@@ -497,7 +497,7 @@ body {
   grid-template-columns: 1fr 4fr;
   align-items: center;
   width: 25vw;
-  height: 12vh;
+  min-height: 12vh;
   background-color: #242731;
   border-radius: 20px;
   margin: 3% 0 3% 0;
@@ -510,7 +510,11 @@ body {
     padding: 30%; }
   .task .task__info {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    padding: 10px; }
+    .task .task__info .task__title {
+      padding-right: 5px;
+      word-break: break-word; }
     .task .task__info .task__date {
       color: #808191;
       font-size: 12px; }

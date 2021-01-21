@@ -3,7 +3,7 @@
   grid-template-columns: 1fr 4fr;
   align-items: center;
   width: 25vw;
-  height: 12vh;
+  min-height: 12vh;
   background-color: #242731;
   border-radius: 20px;
   margin: 3% 0 3% 0;
@@ -20,6 +20,12 @@
   .task__info {
     display: flex;
     flex-direction: column;
+    padding: 10px;
+
+    .task__title {
+      padding-right: 5px;
+      word-break: break-word;
+    }
 
     .task__date {
       color: #808191;

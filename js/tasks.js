@@ -23,6 +23,7 @@ function newTask() {
 
 function update() {
   let listTask = "";
+
   tasks.forEach((task) => {
     listTask +=
       "<li class='tasks-today__task task'><button class='task__check-button'></button><div class='task__info'><span class='task__title'>" +
