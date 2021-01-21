@@ -16,8 +16,7 @@
     height: 35%;
 
     .--task-container-scroll {
-      margin-top: 2%;
-      height: 90%;
+      max-height: 60vh;
       overflow-x: hidden;
       overflow-y: scroll;
     }
