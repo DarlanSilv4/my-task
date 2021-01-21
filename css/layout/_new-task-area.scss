@@ -1,0 +1,30 @@
+/**
+ * Input new Task area
+ */
+
+.new-task-area {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background-color: #242731;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+
+  svg {
+    margin: 0px 10px 0 10px;
+  }
+
+  .new-task-area__input-task {
+    height: 100%;
+    width: 100%;
+    color: white;
+    background-color: #242731;
+    border: none;
+  }
+
+  .new-task-area__calender-icon:hover {
+    fill: white;
+    transition: fill 300ms;
+  }
+}

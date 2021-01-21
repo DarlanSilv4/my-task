@@ -1,0 +1,58 @@
+/**
+ * Main Menu
+ */
+
+.menu {
+  height: inherit;
+  border-radius: 20px 0 0 20px;
+  background-color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20%;
+
+  .menu__app-title {
+    font-size: 1.7em;
+    align-self: center;
+  }
+
+  .menu__links {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 30%;
+
+    a {
+      display: flex;
+      align-items: center;
+      font-family: "Inter", sans-serif !important;
+      color: #808191;
+      height: 50px;
+      width: 80%;
+      padding-left: 10%;
+      border-radius: 0 10px 10px 0;
+    }
+
+    a svg {
+      fill: #808191;
+      margin-right: 5%;
+    }
+
+    a:hover {
+      transition: color 300ms;
+      color: white;
+
+      svg {
+        transition: fill 300ms;
+        fill: white;
+      }
+    }
+
+    .menu__item--selected {
+      color: white;
+      background-color: #3f8cff;
+
+      svg {
+        fill: white;
+      }
+    }
+  }
+}

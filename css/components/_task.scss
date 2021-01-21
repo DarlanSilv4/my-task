@@ -1,0 +1,29 @@
+.task {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  align-items: center;
+  width: 25vw;
+  height: 12vh;
+  background-color: #242731;
+  border-radius: 20px;
+  margin: 3% 0 3% 0;
+  padding-left: 5%;
+
+  .task__check-button {
+    width: 5%;
+    height: 5%;
+    border: 3px solid #808191;
+    border-radius: 15px;
+    padding: 30%;
+  }
+
+  .task__info {
+    display: flex;
+    flex-direction: column;
+
+    .task__date {
+      color: #808191;
+      font-size: 12px;
+    }
+  }
+}

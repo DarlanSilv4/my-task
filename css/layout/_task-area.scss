@@ -1,0 +1,10 @@
+/**
+ * Task Area
+ */
+
+.task-area {
+  display: grid;
+  grid-template-rows: 10% 85% 10%;
+  height: inherit;
+  padding: 5%;
+}

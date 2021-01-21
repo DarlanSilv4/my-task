@@ -1,0 +1,13 @@
+@import "base/normalize";
+@import "base/reset";
+@import "base/typography";
+
+@import "layout/general";
+@import "layout/dashboard";
+@import "layout/menu";
+@import "layout/task-area";
+@import "layout/search-area";
+@import "layout/tasks-list";
+@import "layout/new-task-area";
+
+@import "components/task";

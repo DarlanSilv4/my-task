@@ -1,0 +1,25 @@
+/**
+ * Tasks List
+ */
+
+.tasks-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 60%;
+
+  h2 {
+    font-family: "Inter", sans-serif !important;
+    font-size: 1.3em;
+  }
+
+  .task-container {
+    height: 35%;
+
+    .--task-container-scroll {
+      margin-top: 2%;
+      height: 90%;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+  }
+}

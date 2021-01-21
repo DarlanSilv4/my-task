@@ -1,0 +1,16 @@
+/**
+ * Search area
+ */
+
+.search-area {
+  .search-area__input-search {
+    background-image: url("../../img/search.svg");
+    background-repeat: no-repeat;
+    padding-left: 30px;
+    color: white;
+    background-color: #1f1f1f;
+    border: none;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

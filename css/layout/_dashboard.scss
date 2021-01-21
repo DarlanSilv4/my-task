@@ -1,0 +1,12 @@
+/**
+ * Dashbord Container
+ */
+
+.dashboard {
+  height: 92vh;
+  margin: 2% 10% 2% 10%;
+  border-radius: 20px;
+  background-color: #1f1f1f;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
