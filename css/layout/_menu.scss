@@ -5,7 +5,7 @@
 .menu {
   height: inherit;
   border-radius: 20px 0 0 20px;
-  background-color: #1a1a1a;
+  background-color: $background-secondary;
   display: flex;
   flex-direction: column;
   padding-top: 20%;
@@ -24,7 +24,7 @@
       display: flex;
       align-items: center;
       font-family: "Inter", sans-serif !important;
-      color: #808191;
+      color: $gray-dark;
       height: 50px;
       width: 80%;
       padding-left: 10%;
@@ -32,7 +32,7 @@
     }
 
     a svg {
-      fill: #808191;
+      fill: $gray-dark;
       margin-right: 5%;
     }
 
@@ -48,7 +48,7 @@
 
     .menu__item--selected {
       color: white;
-      background-color: #3f8cff;
+      background-color: $blue-light;
 
       svg {
         fill: white;
