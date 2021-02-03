@@ -3,7 +3,7 @@
  */
 
 .search-area {
-  .search-area__input-search {
+  &__input-search {
     background-image: url("../../img/search.svg");
     background-repeat: no-repeat;
     padding-left: 30px;

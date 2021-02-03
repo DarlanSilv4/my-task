@@ -6,16 +6,26 @@
   display: flex;
   align-items: center;
   height: 100%;
-  background-color: $background-component;
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
+  width: 100%;
+
+  &__new-task-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: 3%;
+    width: 67%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    background-color: $background-component;
+  }
 
   svg {
     margin: 0px 10px 0 10px;
+    fill: white;
   }
 
-  .new-task-area__input-task {
+  &__input-task {
     height: 100%;
     width: 100%;
     color: white;
@@ -23,8 +33,39 @@
     border: none;
   }
 
-  .new-task-area__calender-icon:hover {
-    fill: white;
-    transition: fill 300ms;
+  &__date-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 30%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    background-color: $background-component;
+  }
+
+  &__input-date {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: left;
+    height: 100%;
+    width: 100%;
+    color: white;
+    background-color: $background-component;
+    border: none;
+    @-moz-document url-prefix() {
+      padding-left: 20%;
+      background: url("../../img/calendar.svg");
+      background-repeat: no-repeat;
+      background-position: 10px 4px;
+    }
+
+    &::-webkit-calendar-picker-indicator {
+      content: url(../../img/calendar.svg);
+      margin: 5px;
+      height: 20px;
+      width: 20px;
+      padding-right: 5%;
+    }
   }
 }
