@@ -1,5 +1,3 @@
-var tasks = [];
-
 const idGenerator = () => {
     const timestamp = new Date();
     const id =
@@ -12,6 +10,8 @@ const idGenerator = () => {
 };
 
 export const newTask = () => {
+    const storage = JSON.parse(localStorage.getItem('tasks')) || [];
+
     const id = idGenerator();
     const inputTask = document.getElementsByClassName("new-task-area__input-task")[0];
     const value = inputTask.value;
@@ -29,6 +29,6 @@ export const newTask = () => {
         concluded: concluded,
     };
 
-    tasks.push(task);
-    return tasks;
+    const updateTasks = [...storage, task];
+    localStorage.setItem('tasks', JSON.stringify(updateTasks));
 };
