@@ -10,12 +10,12 @@
   flex-direction: column;
   padding-top: 20%;
 
-  .menu__app-title {
+  &__app-title {
     font-size: 1.7em;
     align-self: center;
   }
 
-  .menu__links {
+  &__links {
     display: flex;
     flex-wrap: wrap;
     padding-top: 30%;

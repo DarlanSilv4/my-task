@@ -2,6 +2,7 @@ import { newTask } from './newTask.js';
 import { load } from './loadTasks.js';
 const inputTask = document.getElementsByClassName("new-task-area__input-task")[0];
 const inputDate = document.getElementsByClassName("new-task-area__input-date")[0];
+const importantButton = document.getElementsByClassName("task__important-button");
 
 load();
 

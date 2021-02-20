@@ -4,7 +4,7 @@
 
 .task {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 1fr 3fr 1fr;
   align-items: center;
   width: 25vw;
   min-height: 12vh;
@@ -13,7 +13,11 @@
   margin: 3% 0 3% 0;
   padding-left: 5%;
 
-  .task__check-button {
+  svg {
+    fill: $gray-dark;
+  }
+
+  &__check-button {
     width: 5%;
     height: 5%;
     border: 3px solid $gray-dark;
@@ -21,19 +25,47 @@
     padding: 30%;
   }
 
-  .task__info {
+  .--checked {
+    background-color: $gray-dark;
+    background-image: url("../img/checkmark.svg");
+    background-repeat: no-repeat;
+    background-position-x: 8px;
+    background-position-y: 8px;
+  }
+
+  &__info {
     display: flex;
     flex-direction: column;
     padding: 10px;
+  }
 
-    .task__title {
-      padding-right: 5px;
-      word-break: break-word;
+  &__title {
+    padding-right: 5px;
+    word-break: break-word;
+  }
+
+  &__date {
+    color: $gray-dark;
+    font-size: 12px;
+  }
+
+  &__delete-button {
+    svg:hover {
+      transition: fill 300ms;
+      fill: red;
     }
+  }
 
-    .task__date {
-      color: $gray-dark;
-      font-size: 12px;
+  &__important-button {
+    svg:hover {
+      transition: fill 300ms;
+      fill: white;
+    }
+  }
+
+  .--importance-button-active {
+    svg {
+      fill: #ffce73;
     }
   }
 }

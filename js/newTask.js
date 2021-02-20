@@ -1,10 +1,12 @@
+import { load } from './loadTasks.js';
+
 const idGenerator = () => {
     const timestamp = new Date();
     const id =
-        timestamp.getHours.toString +
-        timestamp.getMinutes.toString +
-        timestamp.getSeconds.toString +
-        timestamp.getMilliseconds.toString;
+        timestamp.getHours().toString() +
+        timestamp.getMinutes().toString() +
+        timestamp.getSeconds().toString() +
+        timestamp.getMilliseconds().toString();
 
     return id;
 };
@@ -21,14 +23,17 @@ export const newTask = () => {
     const formattedDate = date.format("DD/MM/YYYY");
 
     const concluded = false;
+    const important = false;
 
     const task = {
         id: id,
         value: value,
         date: formattedDate,
         concluded: concluded,
+        important: important
     };
 
     const updateTasks = [...storage, task];
     localStorage.setItem('tasks', JSON.stringify(updateTasks));
+    load();
 };

@@ -1,68 +1,32 @@
+import { isForToday } from './util.js';
+import { activeScrollBar } from './util.js';
+import { drawTask } from './drawTask.js';
+
 export const load = () => {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-
-    let taskToday = "";
-    let taskUpcoming = "";
-    tasks.forEach(task => {
-        if (isForToday(task.date)) {
-            taskToday +=
-                "<li class='tasks-today__task task'>" +
-                "<button class='task__check-button'></button><div class='task__info'>" +
-                "<span class='task__title'>" +
-                task.value +
-                "</span><span class='task__date'>" +
-                task.date
-                + "</span><div></li>";
-        } else {
-            taskUpcoming +=
-                "<li class='tasks-upcoming__task task'>" +
-                "<button class='task__check-button'></button><div class='task__info'>" +
-                "<span class='task__title'>" +
-                task.value +
-                "</span><span class='task__date'>" +
-                task.date
-                + "</span><div></li>";
-        }
-
-    });
-
     const taskTodayElement = document.getElementsByClassName("tasks-today")[0];
     const taskUpcomingElement = document.getElementsByClassName("tasks-upcoming")[0];
+    cleanTasks(taskTodayElement, taskUpcomingElement);
 
-    taskTodayElement.innerHTML = taskToday;
-    taskUpcomingElement.innerHTML = taskUpcoming;
-
-    activeScrollBar(taskToday, taskTodayElement);
-    activeScrollBar(taskUpcoming, taskUpcomingElement);
-
+    tasks.forEach(task => {
+        const drawnTask = drawTask(task);
+        if (isForToday(task.date)) {
+            taskTodayElement.appendChild(drawnTask);
+        }
+        else {
+            taskUpcomingElement.appendChild(drawnTask)
+        }
+    });
+    activeScrollBar(taskTodayElement);
+    activeScrollBar(taskUpcomingElement);
     document.getElementsByClassName("new-task-area__input-task")[0].value = "";
 }
 
-const isForToday = (date) => {
-    const timestamp = new Date();
-    const day = timestamp.getDate()
-    const month = timestamp.getMonth() + 1;
-    const year = timestamp.getFullYear();
-
-    const dayTask = parseInt(date[0] + date[1]);
-    const monthTask = parseInt(date[3] + date[4]);
-    const yearTask = parseInt(date[6] + date[7] + date[8] + date[9]);
-
-    if (dayTask <= day && monthTask <= month && yearTask <= year) {
-        return true;
+const cleanTasks = (element, element2) => {
+    while (element.firstChild) {
+        element.removeChild(element.firstChild);
     }
-    return false;
-}
-
-const activeScrollBar = (string, element) => {
-
-
-    const regex = new RegExp("<li", 'g');
-    let count = 0;
-    while (regex.exec(string)) {
-        count++;
-    }
-    if (count > 3) {
-        element.classList.add("--task-container-scroll");
+    while (element2.firstChild) {
+        element2.removeChild(element2.firstChild);
     }
 }
