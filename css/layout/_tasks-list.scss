@@ -5,7 +5,10 @@
 .tasks-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  height: 60%;
+
+  @media (max-width: $tasks-break) {
+    grid-template-columns: none;
+  }
 
   h2 {
     font-family: "Inter", sans-serif !important;
@@ -13,13 +16,22 @@
   }
 
   .task-container {
-    height: 35%;
+    height: 60vh;
+    min-height: 285px;
     margin-right: 10px;
 
     .--task-container-scroll {
-      max-height: 60vh;
+      height: 60vh;
+      min-height: 285px;
       overflow-x: hidden;
       overflow-y: scroll;
+    }
+
+    @media (max-width: $tasks-break) {
+      &:nth-child(2) {
+        position: absolute;
+        transform: translateX(-99999px);
+      }
     }
   }
 }

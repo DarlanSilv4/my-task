@@ -10,7 +10,13 @@
     color: white;
     background-color: $background-primary;
     border: none;
-    width: 100%;
+    width: 50vw;
     margin-bottom: 20px;
+    @media (max-width: $portrait-screen) {
+      transform: translateX(-999999px);
+    }
+    @media (max-width: $portrait-screen) {
+      transform: translateX(-999999px);
+    }
   }
 }

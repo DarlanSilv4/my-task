@@ -1,0 +1,35 @@
+/**
+ * Topbar mobile
+ */
+
+.topbar-mobile {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  visibility: hidden;
+  font-size: 14px;
+
+  @media (max-width: $portrait-screen) {
+    visibility: visible;
+    width: 100vw;
+    height: 10vh;
+    min-height: 48px;
+    min-width: 260px;
+    background-color: #1a1a1a;
+    justify-content: space-between;
+    transform: translate(-5%, -40%);
+    border-bottom: 1px solid $divisor;
+    padding: 15px 15px 0;
+  }
+
+  &__menu-area {
+    display: flex;
+    align-items: center;
+    font-size: 1.8em;
+  }
+
+  &__logotipo {
+    margin-left: 5px;
+    margin-bottom: 8px;
+  }
+}

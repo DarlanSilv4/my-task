@@ -4,7 +4,16 @@
 
 .task-area {
   display: grid;
-  grid-template-rows: 10% 85% 10%;
-  height: inherit;
+  grid-template-rows: 10% 83% 10%;
+  height: 100%;
+  min-height: 380px;
   padding: 5%;
+
+  @media (max-width: $input-break) {
+    grid-template-rows: 5% 80% 10%;
+  }
+
+  @media (max-width: $portrait-screen) {
+    grid-template-rows: 10% 82% 10%;
+  }
 }
