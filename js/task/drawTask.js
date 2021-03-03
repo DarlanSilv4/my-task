@@ -1,7 +1,7 @@
 import { concludeButton } from './concludeTask.js';
 import { importantButton } from './importantTask.js';
 import { deleteButton } from './deleteTask.js';
-import { isForToday } from './util.js';
+import { isForToday } from '../util.js';
 
 export const drawTask = ({ id, value, date }) => {
     const task = document.createElement('li');

@@ -1,9 +1,10 @@
-import { newTask } from './newTask.js';
-import { load } from './loadTasks.js';
+import { newTask } from './task/newTask.js';
+import { load } from './task/loadTasks.js';
+import { setupMobileMenu } from './mobile.js'
 const inputTask = document.getElementsByClassName("new-task-area__input-task")[0];
 const inputDate = document.getElementsByClassName("new-task-area__input-date")[0];
-const buttonMenuMobile = document.getElementsByClassName("topbar-mobile__menu-hamburger")[0];
-const buttonSideMenuMobile = document.getElementsByClassName("menu__menu-hamburger")[0];
+
+setupMobileMenu();
 load();
 
 inputTask.addEventListener("keyup", (event) => {
@@ -11,14 +12,4 @@ inputTask.addEventListener("keyup", (event) => {
     newTask();
     load();
   }
-});
-
-buttonMenuMobile.addEventListener("click", () => {
-  const sideMenu = document.getElementsByClassName("menu")[0];
-  sideMenu.classList.add("menu-mobile--open");
-});
-
-buttonSideMenuMobile.addEventListener("click", () => {
-  const sideMenu = document.getElementsByClassName("menu")[0];
-  sideMenu.classList.remove("menu-mobile--open");
 });

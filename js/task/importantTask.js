@@ -4,7 +4,7 @@ export const importantButton = (id) => {
     const button = document.createElement('button');
 
     button.classList.add('task__important-button');
-    if (isImport(id)) {
+    if (isImportant(id)) {
         button.classList.add('--importance-button-active');
     }
     button.title = 'Mark as important';
@@ -26,7 +26,7 @@ const markAsImportant = (id) => {
     load();
 }
 
-const isImport = (id) => {
+export const isImportant = (id) => {
     const tasks = JSON.parse(localStorage.getItem('tasks'));
 
     const taskFound = tasks.find(task => task.id == id);
@@ -34,6 +34,5 @@ const isImport = (id) => {
         return true;
     }
     return false;
-
 }
 
