@@ -8,12 +8,14 @@ export const load = () => {
     const links = {
         home: host + '/index.html',
         importance: host + '/important.html',
+        planned: host + '/planned.html',
     }
     const currentLocation = location.href;
 
     switch (currentLocation) {
         case links.home: loadAll(); break;
         case links.importance: loadOnlyImportant(); break;
+        case links.planned: loadOnlyPlanned(); break;
     }
 
 }
@@ -53,6 +55,20 @@ const loadOnlyImportant = () => {
     document.getElementsByClassName("new-task-area__input-task")[0].value = "";
 }
 
+const loadOnlyPlanned = () => {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const taskPlannedElement = document.getElementsByClassName("tasks-planned")[0];
+    cleanTasks(taskPlannedElement, null);
+
+    tasks.forEach(task => {
+        const drawnTask = drawTask(task);
+        if (!isForToday(task.date)) {
+            taskPlannedElement.appendChild(drawnTask);
+        }
+    });
+    activeScrollBar(taskPlannedElement);
+    document.getElementsByClassName("new-task-area__input-task")[0].value = "";
+}
 
 const cleanTasks = (element, element2) => {
     while (element.firstChild) {
