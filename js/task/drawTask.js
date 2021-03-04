@@ -1,4 +1,4 @@
-import { concludeButton } from './concludeTask.js';
+import { concludeButton, isConcluded } from './concludeTask.js';
 import { importantButton } from './importantTask.js';
 import { deleteButton } from './deleteTask.js';
 import { isForToday } from '../util.js';
@@ -15,8 +15,19 @@ export const drawTask = ({ id, value, date }) => {
 
     const info = document.createElement('div');
     info.classList.add('task__info');
-    info.innerHTML = `<span class='task__title'>${value}</span>
-                      <span class='task__date'> ${date}</span>`;
+    const taskTitle = document.createElement('span');
+    taskTitle.classList.add('task__title');
+    taskTitle.innerHTML = value;
+    const taskDate = document.createElement('span');
+    taskDate.classList.add('task__date');
+    taskDate.innerHTML = date;
+
+    if (isConcluded(id)) {
+        taskTitle.classList.add('--task-concluded-title');
+    }
+
+    info.appendChild(taskTitle);
+    info.appendChild(taskDate);
 
     const controlButton = document.createElement('div');
     controlButton.classList.add('task__control-button');

@@ -1,5 +1,6 @@
 import { isForToday } from '../util.js';
 import { isImportant } from '../task/importantTask.js';
+import { isConcluded } from '../task/concludeTask.js';
 import { activeScrollBar } from '../util.js';
 import { drawTask } from './drawTask.js';
 
@@ -9,6 +10,7 @@ export const load = () => {
         home: host + '/index.html',
         importance: host + '/important.html',
         planned: host + '/planned.html',
+        cleaning: host + '/cleaning.html',
     }
     const currentLocation = location.href;
 
@@ -16,6 +18,8 @@ export const load = () => {
         case links.home: loadAll(); break;
         case links.importance: loadOnlyImportant(); break;
         case links.planned: loadOnlyPlanned(); break;
+        case links.cleaning: loadOnlyCleaning(); break;
+        default: loadAll();
     }
 
 }
@@ -67,6 +71,20 @@ const loadOnlyPlanned = () => {
         }
     });
     activeScrollBar(taskPlannedElement);
+    document.getElementsByClassName("new-task-area__input-task")[0].value = "";
+}
+const loadOnlyCleaning = () => {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const taskCleaningElement = document.getElementsByClassName("tasks-concluded")[0];
+    cleanTasks(taskCleaningElement, null);
+
+    tasks.forEach(task => {
+        const drawnTask = drawTask(task);
+        if (isConcluded(task.id)) {
+            taskCleaningElement.appendChild(drawnTask);
+        }
+    });
+    activeScrollBar(taskCleaningElement);
     document.getElementsByClassName("new-task-area__input-task")[0].value = "";
 }
 

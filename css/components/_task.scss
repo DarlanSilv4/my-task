@@ -58,6 +58,11 @@
     word-break: break-word;
   }
 
+  .--task-concluded-title {
+    font-style: italic;
+    text-decoration: line-through;
+  }
+
   &__date {
     color: $gray-dark;
     font-size: 12px;

@@ -840,6 +840,10 @@ body {
   padding-right: 5px;
   word-break: break-word;
 }
+.task .--task-concluded-title {
+  font-style: italic;
+  text-decoration: line-through;
+}
 .task__date {
   color: #808191;
   font-size: 12px;

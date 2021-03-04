@@ -20,7 +20,7 @@ const concludeTask = (id) => {
     load();
 }
 
-const isConcluded = (id) => {
+export const isConcluded = (id) => {
     const tasks = JSON.parse(localStorage.getItem('tasks'));
     const taskFound = tasks.find(task => task.id == id);
     if (taskFound.concluded) {
