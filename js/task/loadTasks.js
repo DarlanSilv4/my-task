@@ -10,7 +10,7 @@ export const load = () => {
         home: host + '/index.html',
         importance: host + '/important.html',
         planned: host + '/planned.html',
-        cleaning: host + '/cleaning.html',
+        concluded: host + '/concluded.html',
     }
     const currentLocation = location.href;
 
@@ -18,7 +18,7 @@ export const load = () => {
         case links.home: loadAll(); break;
         case links.importance: loadOnlyImportant(); break;
         case links.planned: loadOnlyPlanned(); break;
-        case links.cleaning: loadOnlyCleaning(); break;
+        case links.concluded: loadOnlyConcluded(); break;
         default: loadAll();
     }
 
@@ -73,7 +73,7 @@ const loadOnlyPlanned = () => {
     activeScrollBar(taskPlannedElement);
     document.getElementsByClassName("new-task-area__input-task")[0].value = "";
 }
-const loadOnlyCleaning = () => {
+const loadOnlyConcluded = () => {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     const taskCleaningElement = document.getElementsByClassName("tasks-concluded")[0];
     cleanTasks(taskCleaningElement, null);
