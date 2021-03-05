@@ -1,12 +1,12 @@
 import { concludeButton, isConcluded } from './concludeTask.js';
 import { importantButton } from './importantTask.js';
 import { deleteButton } from './deleteTask.js';
-import { isForToday } from '../util.js';
+import { isForToday, isTaskOverdue } from '../util.js';
 
 export const drawTask = ({ id, value, date }) => {
     const task = document.createElement('li');
 
-    if (isForToday(date)) {
+    if (isForToday(date) || isTaskOverdue(date)) {
         task.classList.add('tasks-today__task', 'task');
     }
     else {

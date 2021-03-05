@@ -1,4 +1,4 @@
-import { isForToday } from '../util.js';
+import { isForToday, isTaskOverdue } from '../util.js';
 import { isImportant } from '../task/importantTask.js';
 import { isConcluded } from '../task/concludeTask.js';
 import { activeScrollBar } from '../util.js';
@@ -32,10 +32,10 @@ const loadAll = () => {
 
     tasks.forEach(task => {
         const drawnTask = drawTask(task);
-        if (isForToday(task.date)) {
+        if (isForToday(task.date) || (isTaskOverdue(task.date) && !task.concluded)) {
             taskTodayElement.appendChild(drawnTask);
         }
-        else {
+        else if (!isTaskOverdue(task.date)) {
             taskUpcomingElement.appendChild(drawnTask)
         }
     });
@@ -51,7 +51,7 @@ const loadOnlyImportant = () => {
 
     tasks.forEach(task => {
         const drawnTask = drawTask(task);
-        if (isImportant(task.id)) {
+        if (isImportant(task.id) && !task.concluded) {
             taskImportantElement.appendChild(drawnTask);
         }
     });
@@ -66,7 +66,7 @@ const loadOnlyPlanned = () => {
 
     tasks.forEach(task => {
         const drawnTask = drawTask(task);
-        if (!isForToday(task.date)) {
+        if (!isForToday(task.date) && !task.concluded) {
             taskPlannedElement.appendChild(drawnTask);
         }
     });
