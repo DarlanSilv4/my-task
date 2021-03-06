@@ -66,7 +66,7 @@ const loadOnlyPlanned = () => {
 
     tasks.forEach(task => {
         const drawnTask = drawTask(task);
-        if (!isForToday(task.date) && !task.concluded) {
+        if (!isForToday(task.date) && !isTaskOverdue(task.date) && !task.concluded) {
             taskPlannedElement.appendChild(drawnTask);
         }
     });
